@@ -1,30 +1,25 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
 using ProjetoTeste2.DI;
-using ProjetoTeste2.Domains.Entities;
-using ProjetoTeste2.Infra.Context;
 
 namespace ProjetoTeste2.App
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env, IApplicationBuilder app)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
             Env = env;
-            App = app;
         }
 
         public IConfiguration Configuration { get; }
         public IHostingEnvironment Env { get; }
-        public IApplicationBuilder App { get; set; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -50,7 +45,7 @@ namespace ProjetoTeste2.App
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            ProjetoTeste2DI.Configure(services, Configuration, Env, App);
+            ProjetoTeste2DI.Configure(services, Configuration, Env);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

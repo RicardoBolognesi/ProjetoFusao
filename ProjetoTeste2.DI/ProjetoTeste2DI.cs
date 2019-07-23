@@ -21,11 +21,11 @@ namespace ProjetoTeste2.DI
 
     public static class ProjetoTeste2DI
     {
-        public static void Configure(this IServiceCollection services, IConfiguration configuration, IHostingEnvironment env, IApplicationBuilder app)
+        public static void Configure(this IServiceCollection services, IConfiguration configuration, IHostingEnvironment env)
         {
             ConfigureDbContexts(services, configuration);
             ConfigureSession(services, configuration, env);
-            ConfigureIdentity(services, configuration, app);
+            ConfigureIdentity(services, configuration);
             ConfigureRepositories(services);
             ConfigureServices(services);
             ConfigureHelpers(services);
@@ -72,7 +72,7 @@ namespace ProjetoTeste2.DI
 
         }
 
-        private static void ConfigureIdentity(IServiceCollection services, IConfiguration configuration, IApplicationBuilder app)
+        private static void ConfigureIdentity(IServiceCollection services, IConfiguration configuration)
         {
             int loginExpireTimeSpan = Int32.Parse(configuration?.GetSection("AppSettings")?["LoginExpireTimeSpan"]);
 
@@ -108,7 +108,7 @@ namespace ProjetoTeste2.DI
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<AuthenticatedUser>();
-            IdentitySeedData.SeedDatabase(app);
+            //IdentitySeedData.SeedDatabase(app);
         }
 
         private static void ConfigureServices(IServiceCollection services)
