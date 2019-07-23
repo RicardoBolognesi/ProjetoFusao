@@ -1,0 +1,53 @@
+<div class="p-grid">
+  <div class="p-col-12 p-md-12- p-lg-4 p-lg-offset-4 p-xl-4 p-xl-offset-4">
+    <p-panel header="Cadastro de Usuário">
+      <div class="p-grid">
+        <div class="p-col-12">
+          <form [formGroup]="formulario">
+            <!--Usuário-->
+            <div class="p-col ui-fluid">
+              <span>Usuário</span>
+              <input id="username" type="text" formControlName="username" pInputText />
+            </div>
+            <!--Email-->
+            <div class="p-col ui-fluid">
+              <span>Email</span>
+              <input id="email" type="text" formControlName="email" pInputText />
+            </div>
+            <!--Senha-->
+            <div class="p-col ui-fluid">
+              <span>Senha</span>
+              <input type="password"
+                     id="password"
+                     formControlName="password"
+                     pPassword
+                     promptLabel="Entre com uma Senha"
+                     weakLabel="Fraca"
+                     mediumLabel="Média"
+                     strongLabel="Forte" class="senha"
+                     feedback="false" />
+            </div>
+            <!--ConfirmaSenha-->
+            <div class="p-col ui-fluid">
+              <span>Confirma Senha</span>
+              <input type="password"
+                     id="confirmPassword"
+                     formControlName="confirmPassword"
+                     pPassword
+                     promptLabel="Entre com uma Senha"
+                     weakLabel="Fraca"
+                     mediumLabel="Média"
+                     strongLabel="Forte"
+                     class="senha"
+                     feedback="false" />
+            </div>
+            <!--Botões-->
+            <div class="p-col ui-fluid">
+              <button pButton type="submit" label="Gravar" class="ui-button-raised ui-button-secondary" (click)="onSubmit()"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>

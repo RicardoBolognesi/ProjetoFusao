@@ -1,0 +1,9 @@
+<p-menubar [model]="items" [autoDisplay]="false">
+  <div><button type="button" pButton label="Logout" icon="fa fa-sign-out" style="margin-left: .25em" (click)="signOut()"></button></div>
+</p-menubar>
+<p-confirmDialog #cd header="Log Out ! " icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>

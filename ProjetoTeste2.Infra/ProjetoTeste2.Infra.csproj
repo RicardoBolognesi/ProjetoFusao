@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190708234652_BaseInicial3.cs" />
+    <Compile Remove="Migrations\20190709000205_BaseInicial4.cs" />
+    <Compile Remove="Migrations\20190709001814_BaseIncial5.cs" />
+    <Compile Remove="Migrations\20190709002029_BaseIncial3.cs" />
+    <Compile Remove="Migrations\20190709003125_BaseInicial5.cs" />
+    <Compile Remove="Migrations\20190709003426_BaseInicial.cs" />
+    <Compile Remove="Migrations\20190709005609_BaseIncial6.cs" />
+    <Compile Remove="Migrations\20190709154737_BaseIncial7.cs" />
+    <Compile Remove="Migrations\20190709155141_BaseInicial7.cs" />
+    <Compile Remove="Migrations\20190709160647_BaseInicial.cs" />
+    <Compile Remove="Migrations\20190709162629_BaseInicial.cs" />
+    <Compile Remove="Migrations\20190709162944_BaseInicial2.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoTeste2.Domains\ProjetoTeste2.Domains.csproj" />
+  </ItemGroup>
+
+</Project>

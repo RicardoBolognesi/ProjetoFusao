@@ -1,0 +1,53 @@
+<div class="p-grid p-align-center vertical-container" style="height: 100vh">
+  <div class="p-col-12 p-md-6 p-md-offset-3 p-lg-6 p-lg-offset-3 p-xl-4 p-xl-offset-4">
+    <p-panel header="Login De Acesso">
+      <div class="p-grid">
+        <!--Coluna Logo-->
+        <div class="p-col-12 p-md-12 p-lg-6 m-xl-6" id="colunaLogo">
+          <img src="{{logomx}}" id="logo">
+        </div>
+        <!--Coluna Login-->
+        <div class="p-col-12 p-md-12 p-lg-6 m-xl-6">
+          <div class="p-grid p-dir-col p-justify-center">
+            <form [formGroup]="formulario">
+              <!--Usuário-->
+              <div class="p-col ui-fluid">
+                <span>&nbsp;</span>
+                <span class="ui-float-label">
+                  <input id="username"
+                         type="text"
+                         formControlName="username"
+                         pInputText
+                         pTooltip="Digite o usuário" />
+                  <label for="nome">Usuário</label>
+                  <p-message severity="error" text="Usuário Obrigatório" *ngIf="!formulario.controls['username'].valid && formulario.controls['username'].dirty"></p-message>
+                </span>
+                
+              </div>
+              <!--Senha-->
+              <div class="p-col ui-fluid">
+                <span>&nbsp;</span>
+                <div class="ui-float-label">
+                  <input type="password"
+                         id="password"
+                         formControlName="password"
+                         pInputText
+                         promptLabel="Entre com uma Senha"
+                         class="senha"
+                         pTooltip="Digite a Senha" />
+                  <label for="senha">Senha</label>
+                  <p-message severity="error" text="Senha Obrigatório" *ngIf="!formulario.controls['password'].valid && formulario.controls['password'].dirty"></p-message>
+                </div>
+                
+              </div>
+              <!--Botões-->
+              <div class="p-col ui-fluid">
+                <button pButton type="submit" label="Login" class="ui-button-raised ui-button-secondary" (click)="onSubmit()"></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>

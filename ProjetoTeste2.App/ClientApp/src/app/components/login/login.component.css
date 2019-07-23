@@ -1,0 +1,20 @@
+#colunaLogo {
+  min-height: 100px;
+  display: flex;
+  -o-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.senha {
+  text-align: center;
+  font-weight: bold;
+}
+
+#logo {
+  width: 142px;
+  height: 96px;
+  -webkit-align-self: center;
+  -o-align-self: center;
+  align-self: center;
+}

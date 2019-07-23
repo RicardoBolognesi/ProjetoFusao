@@ -1,0 +1,62 @@
+<div class="p-grid">
+  <div class="p-col-12 p-md-4 p-md-offset-4 p-lg-4 p-lg-offset-4 p-xl-4 p-xl-offset-4">
+    <p-panel header="Tipo de Endereços">
+      <div class="p-grid p-dir-col">
+        <!--Espaço em branco-->
+        <div class="p-col-12">
+
+        </div>
+        <!-- Grid -->
+        <div class="p-col-12">
+          <p-table #dt [columns]="cols" [value]="enderecoTipos" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="caption">
+              <div class="p-grid">
+                <div class="p-col-3">
+                  <button type="button" class="btn btn-outline-dark" (click)="novoRegistro()"><i class="fa fa-plus-square-o" aria-hidden="true"> Novo</i></button>
+                </div>
+                <div class="p-col-9">
+                  <div style="text-align: right">
+                    <i class="fa fa-search" style="margin: 4px 4px 0 0"></i>
+                    <input type="text" pInputText size="50" placeholder="Pesquisar" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width: 70%">
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th style="width: 20%; text-align: center">Código</th>
+                <th style="width: 40%">Descrição</th>
+                <th style="width: 40%; text-align: center">...</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr>
+                <td *ngFor="let col of columns">
+                  {{rowData[col.field]}}
+                </td>
+                <td style="text-align: center">
+                  <button type="button" class="btn btn-outline-dark btn-sm" pTooltip="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true" (click)="verRegistro(rowData)"></i></button> |
+                  <button type="button" class="btn btn-outline-dark btn-sm" pTooltip="Excluir"><i class="fa fa-trash" aria-hidden="true" (click)="excluirRegistro(rowData)"></i></button> |
+                  <button type="button" class="btn btn-outline-dark btn-sm" pTooltip="Ver"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="3">
+                  Nenhum Registro Encontrado !
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+<p-confirmDialog #cd>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>

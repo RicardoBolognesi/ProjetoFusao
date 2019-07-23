@@ -1,0 +1,22 @@
+<div class='container-fluid'>
+  <div class="p-grid sample-layout">
+    <div class="p-col-12 p-col-nogutter" id="menu" *ngIf="!mostrarMenu">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img [src]="logomx" width="60%" height="60%" class="d-inline-block align-top" alt="Logo Mx">
+        </a>
+      </nav>
+      <app-home-navigmenu></app-home-navigmenu>
+    </div>
+    <div class="p-col-12" id="conteudo">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="p-col-12" id="rodape" *ngIf="!mostrarRodape">
+      <div class="p-grid p-align-center vertical-container">
+        <div class="p-col-4" id="dadosData">{{dadosData}}</div>
+        <div class="p-col-4" id="copyrigth">Copyright©2019</div>
+        <div class="p-col-4" id="login">{{nomeUsuario}}</div>
+      </div>
+    </div>
+  </div>
+</div>
