@@ -56,7 +56,7 @@ namespace ProjetoTeste2.DI
 
             services.AddSession(options =>
             {
-                options.Cookie.Name = ".ProjetoTeste2App.Session";
+                options.Cookie.Name = "auth_cookie";
                 options.IdleTimeout = TimeSpan.FromMinutes(loginExpireTimeSpan);
             });
             services.AddDistributedSqlServerCache(options =>
@@ -66,6 +66,7 @@ namespace ProjetoTeste2.DI
                 options.TableName = "USER_SESSION";
             });
 
+            
 
         }
 
@@ -83,7 +84,16 @@ namespace ProjetoTeste2.DI
                  .Services.ConfigureApplicationCookie(options =>
                  {
                      options.SlidingExpiration = true;
-                     options.ExpireTimeSpan = TimeSpan.FromMinutes(loginExpireTimeSpan);
+                     //options.ExpireTimeSpan = TimeSpan.FromMinutes(loginExpireTimeSpan);
+
+                     options.Cookie.Name = "auth_cookie";
+                     options.Cookie.SameSite = SameSiteMode.None;
+                     options.LoginPath = new PathString("/Login");
+                     options.AccessDeniedPath = "/login";
+                     options.ReturnUrlParameter = "/login";
+                     options.AccessDeniedPath = "/login";
+                     options.LogoutPath = "/login";
+                     options.ExpireTimeSpan = TimeSpan.FromMinutes(loginExpireTimeSpan);//set it less for testing purpose
                  });
 
             services.Configure<IdentityOptions>(options =>
