@@ -3,11 +3,11 @@
     <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
       <p-panel header="Tipos de Endereços">
         <div class="p-grid" style="margin: 10px 0px">
-          <div class="p-col-12 ui-fluid">
+          <!--<div class="p-col-12 ui-fluid">
             <span>Código *:</span>
             <input pInputText type="text" formControlName="enderecoTipoId" placeholder="Código" readonly/>
-            <!--<p-message severity="error" text="Código Requerido" *ngIf="!formulario.controls['enderecoTipoId'].valid && formulario.controls['enderecoTipoId'].dirty"></p-message>-->
-          </div>
+            <p-message severity="error" text="Código Requerido" *ngIf="!formulario.controls['enderecoTipoId'].valid && formulario.controls['enderecoTipoId'].dirty"></p-message>
+          </div>-->
           <div class="p-col-12 ui-fluid">
             <span>Descrição *:</span>
             <input pInputText type="text" formControlName="descricaoTipo" placeholder="Descrição" />
