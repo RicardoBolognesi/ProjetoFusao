@@ -41,7 +41,6 @@ namespace ProjetoTeste2.Infra.Context
             builder.ApplyConfiguration(new ClienteContatoMapping<ClienteContato>());
             builder.ApplyConfiguration(new EnderecoMapping<Endereco>());
             builder.ApplyConfiguration(new EnderecoTipoMapping<EnderecoTipo>());
-
             //builder.ApplyConfiguration(new RoleMapping<Role>());
             //builder.ApplyConfiguration(new UserRoleMapping<UserRole>());
             //builder.ApplyConfiguration(new RoleClaimMapping<RoleClaim>());

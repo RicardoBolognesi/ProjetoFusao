@@ -15,14 +15,16 @@ namespace ProjetoTeste2.App
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment env, IApplicationBuilder app)
         {
             Configuration = configuration;
             Env = env;
+            App = app;
         }
 
         public IConfiguration Configuration { get; }
         public IHostingEnvironment Env { get; }
+        public IApplicationBuilder App { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -48,7 +50,7 @@ namespace ProjetoTeste2.App
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            ProjetoTeste2DI.Configure(services, Configuration, Env);
+            ProjetoTeste2DI.Configure(services, Configuration, Env, App);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,14 +72,12 @@ namespace ProjetoTeste2.App
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseSession();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action=Index}/{id?}");
             });
-
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
