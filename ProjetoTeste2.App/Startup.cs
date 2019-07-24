@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
 using ProjetoTeste2.DI;
+using ProjetoTeste2.Infra.Context;
 
 namespace ProjetoTeste2.App
 {
@@ -19,6 +20,8 @@ namespace ProjetoTeste2.App
 
         public IConfiguration Configuration { get; }
         public IHostingEnvironment Env { get; }
+        
+
 
 
         // This method gets called by the runtime. Use this method to add services to the container.

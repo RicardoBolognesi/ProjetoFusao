@@ -42,7 +42,7 @@
               </div>
               <!--Botões-->
               <div class="p-col ui-fluid">
-                <button pButton type="submit" label="Login" class="ui-button-raised ui-button-secondary" (click)="onSubmit()"></button>
+                <button pButton type="submit" label="Login" class="ui-button-raised ui-button-secondary" [disabled]="!formulario.valid" (click)="onSubmit()"></button>
               </div>
             </form>
           </div>

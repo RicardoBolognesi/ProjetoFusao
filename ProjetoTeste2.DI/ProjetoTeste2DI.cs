@@ -29,6 +29,7 @@ namespace ProjetoTeste2.DI
             ConfigureRepositories(services);
             ConfigureServices(services);
             ConfigureHelpers(services);
+            
         }
 
         private static void ConfigureDbContexts(IServiceCollection services, IConfiguration configuration)
@@ -108,7 +109,7 @@ namespace ProjetoTeste2.DI
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<AuthenticatedUser>();
-            //IdentitySeedData.SeedDatabase(app);
+            
         }
 
         private static void ConfigureServices(IServiceCollection services)
@@ -124,11 +125,15 @@ namespace ProjetoTeste2.DI
             //services.AddScoped<IProductRepository, ProductRepository>();
             //services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
+
         }
 
         private static void ConfigureHelpers(IServiceCollection services)
         {
             services.AddScoped<IRequestInfoHelper, RequestInfoHelper>();
         }
+
+
     }
 }

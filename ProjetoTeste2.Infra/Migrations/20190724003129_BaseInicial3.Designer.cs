@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoTeste2.Infra.Context;
 
 namespace ProjetoTeste2.Infra.Migrations
 {
     [DbContext(typeof(ProjetoTeste2DbContext))]
-    partial class ProjetoTeste2DbContextModelSnapshot : ModelSnapshot
+    [Migration("20190724003129_BaseInicial3")]
+    partial class BaseInicial3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

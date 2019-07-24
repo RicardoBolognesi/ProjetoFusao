@@ -3,6 +3,9 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AppSettings } from './app.settings';
 import { ToastsManager } from 'ng2-toastr';
+import { UserIdleService } from 'angular-user-idle';
+import { AccountService } from './services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,16 +20,25 @@ export class AppComponent implements OnInit {
   isPageLogin : Subscription;
   mostrarMenu: boolean;
   mostrarRodape: boolean;
-  nomeUsuario: string ="Usuário Logado";
+  nomeUsuario: string ="";
 
   constructor(
     public toastr: ToastsManager,
-    vcr: ViewContainerRef
-  ) { this.toastr.setRootViewContainerRef(vcr); }
+    vcr: ViewContainerRef,
+    private userIdle: UserIdleService,
+    private service: AccountService,
+    private route: Router
+  ) {
+    this.toastr.setRootViewContainerRef(vcr);
+    this.service.nomeDoUsuario.subscribe(nome => this.nomeUsuario = nome);
+  }
 
   ngOnInit() {
     this.dadosData = this.formatarData();
     this.hideMenuRodape();
+    this.verificaSessao(this.userIdle);
+
+
   }
 
   formatarData() {
@@ -81,10 +93,32 @@ export class AppComponent implements OnInit {
       error => {
       });
   }
-  onNomeUsuario(evento) {
-    this.nomeUsuario = evento.UserName;
+
+  verificaSessao(userIdle: UserIdleService) {
+    //Start watching for user inactivity.
+    userIdle.startWatching();
+    // Start watching when user idle is starting and reset if user action is there.
+    userIdle.onTimerStart().subscribe(count => {
+      var eventList = ["click", "mouseover", "keydown", "DOMMouseScroll", "mousewheel",
+        "mousedown", "touchstart", "touchmove", "scroll", "keyup"];
+      for (let event of eventList) {
+        document.body.addEventListener(event, () => userIdle.resetTimer());
+      }
+    });
+    // Start watch when time is up.
+    userIdle.onTimeout().subscribe(() => {
+      this.signOut();
+    });
   }
-
-
+  signOut() {
+    this.service.signOut().subscribe(resp => {
+      if (resp) {
+        AppSettings.IsLoginPageEvent.next(true);
+        AppSettings.IsAuthenticated.next(false);
+        this.service.authenticated = false;
+        this.route.navigate(['/login']);
+      }
+    });
+  }
 
 }

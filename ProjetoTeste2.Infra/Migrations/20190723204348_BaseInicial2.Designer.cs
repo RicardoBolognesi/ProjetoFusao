@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoTeste2.Infra.Context;
 
 namespace ProjetoTeste2.Infra.Migrations
 {
     [DbContext(typeof(ProjetoTeste2DbContext))]
-    partial class ProjetoTeste2DbContextModelSnapshot : ModelSnapshot
+    [Migration("20190723204348_BaseInicial2")]
+    partial class BaseInicial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,10 +43,6 @@ namespace ProjetoTeste2.Infra.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new { Id = "1bd14693-d749-4586-a748-b2c2e67e44e9", ConcurrencyStamp = "6e1c3692-bd79-4248-8465-d0176e004502", Name = "admin", NormalizedName = "admin" }
-                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -116,10 +114,6 @@ namespace ProjetoTeste2.Infra.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-
-                    b.HasData(
-                        new { UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575", RoleId = "1bd14693-d749-4586-a748-b2c2e67e44e9" }
-                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -364,10 +358,6 @@ namespace ProjetoTeste2.Infra.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new { Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575", AccessFailedCount = 0, ConcurrencyStamp = "4995f09b-a368-4feb-9708-224e6b3d4dd0", Email = "admin@admin", EmailConfirmed = false, FullName = "administrador", LockoutEnabled = false, NormalizedEmail = "admin@admin", NormalizedUserName = "admin", PasswordHash = "AQAAAAEAACcQAAAAEIqLKny3YRY4+ylCB3j4TGzKnwYT3AWQgf8dTtG2z+W6qtDiuYAtBOZxnPUFQ6Z3tg==", PhoneNumberConfirmed = false, SecurityStamp = "", TwoFactorEnabled = false, UserName = "admin" }
-                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

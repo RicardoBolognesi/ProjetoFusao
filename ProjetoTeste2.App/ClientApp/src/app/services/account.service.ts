@@ -1,19 +1,24 @@
-import { HttpHeaders, HttpErrorResponse ,HttpResponse} from '@angular/common/http';
-import { map, take, tap } from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
+import { EventEmitter } from '@angular/core';
+
+
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs'
 import { AppSettings } from '../app.settings';
-import { BaseResponse } from '../models/base-response.model';
 import { SignIn } from '../models/sign-in.model';
 import { BaseService } from '../services/base.service';
 import { Response } from '@angular/http';
 import { UserAuthenticated } from '../models/user-authenticated.model';
-import { of } from 'rxjs/observable/of';
+
 
 export class AccountService extends BaseService {
 
   authenticated: boolean = false;
   statusResposta: Response;
   userAuthenticated: UserAuthenticated;
+  nome: string = "";
+
+  nomeDoUsuario = new EventEmitter<string>();
 
   signIn(singInDTO: SignIn): Observable<boolean> {
 
@@ -97,8 +102,12 @@ export class AccountService extends BaseService {
   obterNomeUsuario() {
     const url = AppSettings.GET_USERNAME_URL;
 
-    return this.http.get<UserAuthenticated>(url).pipe(
-      map((user: UserAuthenticated) => user.UserName)
+   return this.http.get<any>(url).pipe(
+      map((user: UserAuthenticated) => {
+        this.nomeDoUsuario.emit(user.UserName);
+        console.log({ NomeUsuario: user.UserName });
+        return user.UserName;
+      })
     );
   }
 }

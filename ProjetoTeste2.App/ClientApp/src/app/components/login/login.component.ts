@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { AccountService } from '../../services/account.service';
 import { SignIn } from '../../models/sign-in.model';
 import { ToastsManager } from 'ng2-toastr';
 import { AppSettings } from '../../app.settings';
+import { SubscriberService } from '../../services/subscriber.service';
 
 
 @Component({
@@ -20,8 +21,7 @@ export class LoginComponent implements OnInit {
   formulario: FormGroup;
   submitted: any = false;
   result: any;
-  @Output() NomeUsuario = new EventEmitter();
- nomeUsuario: any;
+ 
 
   constructor(
     private service: AccountService,
@@ -36,12 +36,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.logomx = './assets/logomxsystems.png';
     this.createForm();
-    //this.formulario = new FormGroup({
-    //  nome: new FormControl(null),
-    //  senha: new FormControl(null)
-    //});
-
-
   }
 
   createForm() {
@@ -82,7 +76,6 @@ export class LoginComponent implements OnInit {
   }
 
   obterNomeUsuario() {
-    this.service.obterNomeUsuario().subscribe(userName => this.nomeUsuario = userName);
-
+    this.service.obterNomeUsuario().subscribe();
   }
 }

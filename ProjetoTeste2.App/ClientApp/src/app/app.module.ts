@@ -24,6 +24,8 @@ import { EnderecoTipoModule } from './components/endereco-tipo/endereco-tipo.mod
 import { EnderecoTipoRouting } from './components/endereco-tipo/endereco-tipo-routing';
 import { MessageService } from 'primeng/api';
 import { AuthGuard } from './services/auth.guard';
+import { UserIdleModule } from 'angular-user-idle';
+import { SubscriberService } from './services/subscriber.service';
 
 
 export class CustomOption extends ToastOptions {
@@ -58,7 +60,8 @@ export class CustomOption extends ToastOptions {
     ToastModule.forRoot(),
     TableModule,
     EnderecoTipoModule,
-    EnderecoTipoRouting
+    EnderecoTipoRouting,
+    UserIdleModule.forRoot({ idle:60, timeout:60 ,ping:10})
   ],
   providers: [
     {
@@ -66,8 +69,15 @@ export class CustomOption extends ToastOptions {
       useClass: CustomOption,
     },
     MessageService,
-    AuthGuard
+    AuthGuard,
+    SubscriberService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+
+
+}
+
+

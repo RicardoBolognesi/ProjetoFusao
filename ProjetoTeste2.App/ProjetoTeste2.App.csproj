@@ -31,6 +31,7 @@
     <None Remove="ClientApp\src\app\models\endereco-tipo.model.ts" />
     <None Remove="ClientApp\src\app\models\enderecotipo.model.ts" />
     <None Remove="ClientApp\src\app\models\user-authenticated.model.ts" />
+    <None Remove="ClientApp\src\app\services\subscriber.service.ts" />
     <None Remove="ClientApp\src\app\shared\tipo-operacao.ts" />
   </ItemGroup>
 
@@ -44,6 +45,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\models\endereco-tipo.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\enderecotipo.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user-authenticated.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\subscriber.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\tipo-operacao.ts" />
   </ItemGroup>
 
