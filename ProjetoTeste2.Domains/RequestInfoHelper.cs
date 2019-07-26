@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using ProjetoTeste2.Domains.Dtos;
-using ProjetoTeste2.Domains.Interfaces;
 using ProjetoTeste2.Domains.Interfaces.Repository;
 
 namespace ProjetoTeste2.Domains

@@ -10,9 +10,8 @@ namespace ProjetoTeste2.Infra.Repositories
         #region Variáveis
         protected readonly ProjetoTeste2DbContext Context;
         private BaseRepository<User> _userRepository = null;
-
         private BaseRepository<EnderecoTipo> _enderecoTipoRepository = null;
-        //private BaseRepository<Cliente> _clienteRepository = null;
+        private BaseRepository<Cliente> _clienteRepository = null;
 
         #endregion
 
@@ -45,19 +44,17 @@ namespace ProjetoTeste2.Infra.Repositories
                 return _enderecoTipoRepository;
             }
         }
-
-
-        //public IRepository<Cliente> ClienteRepository
-        //{
-        //    get
-        //    {
-        //        if (_clienteRepository == null)
-        //        {
-        //            _clienteRepository = new BaseRepository<Cliente>(Context);
-        //        }
-        //        return _clienteRepository;
-        //    }
-        //}
+        public IRepository<Cliente> ClienteRepository
+        {
+            get
+            {
+                if (_clienteRepository == null)
+                {
+                    _clienteRepository = new BaseRepository<Cliente>(Context);
+                }
+                return _clienteRepository;
+            }
+        }
         #endregion
 
         public bool SaveChanges()
@@ -84,9 +81,6 @@ namespace ProjetoTeste2.Infra.Repositories
 
         #region IDisposable Support  
         private bool _disposedValue = false; // To detect redundant calls  
-
-
-
 
         protected virtual void Dispose(bool disposing)
         {

@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
+using ProjetoTeste2.App.Mappings.Profile;
 using ProjetoTeste2.DI;
-using ProjetoTeste2.Infra.Context;
 
 namespace ProjetoTeste2.App
 {
@@ -33,6 +33,16 @@ namespace ProjetoTeste2.App
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver();
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
+
+            // Configurando o AutoMapper/////////////////////////////////
+            var config = new AutoMapper.MapperConfiguration(c =>
+            {
+                c.AddProfile(new ApplicationProfile());
+            });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+            //////////////////////////////////////////////////////////////
 
             //services.AddDbContext<ProjetoTeste2DbContext>(ops =>
             //    ops.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

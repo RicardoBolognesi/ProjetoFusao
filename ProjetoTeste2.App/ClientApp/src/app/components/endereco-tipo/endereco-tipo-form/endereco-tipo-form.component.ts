@@ -55,7 +55,7 @@ export class EnderecoTipoFormComponent implements OnInit
   preparaForm() {
 
     this.formulario = this.formBuilder.group({
-      enderecoTipoId: [null, Validators.required],
+      enderecoTipoId: ["0"],
       descricaoTipo: [null, Validators.required]
     });
   }

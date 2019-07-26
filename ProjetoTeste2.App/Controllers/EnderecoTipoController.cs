@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ProjetoTeste2.Domains.Dtos;
@@ -15,11 +16,13 @@ namespace ProjetoTeste2.App.Controllers
     {
         private readonly IRequestInfoHelper _requestInfoHelper;
         private readonly IEnderecoTipoService _enderecoTipoService;
+        private readonly IMapper _mapper;
 
-        public EnderecoTipoController(IEnderecoTipoService enderecoTipoService, IRequestInfoHelper requestInfoHelper)
+        public EnderecoTipoController(IEnderecoTipoService enderecoTipoService, IRequestInfoHelper requestInfoHelper, IMapper mapper)
         {
             _enderecoTipoService = enderecoTipoService;
             _requestInfoHelper = requestInfoHelper;
+            _mapper = mapper;
         }
 
 
@@ -47,15 +50,17 @@ namespace ProjetoTeste2.App.Controllers
         public IActionResult Create([FromBody]EnderecoTipoDto enderecoTipoDto)
         {
 
-            EnderecoTipo enderecoTipo = new EnderecoTipo();
+            //EnderecoTipo enderecoTipo = new EnderecoTipo();
+            var tipo = _mapper.Map<EnderecoTipo>(enderecoTipoDto);
             try
             {
-                enderecoTipo.EnderecoTipoId = enderecoTipoDto.EnderecoTipoId;
-                enderecoTipo.DescricaoTipo = enderecoTipoDto.DescricaoTipo;
 
-                _enderecoTipoService.Adicionar(enderecoTipo);
+                //enderecoTipo.EnderecoTipoId = enderecoTipoDto.EnderecoTipoId;
+                //enderecoTipo.DescricaoTipo = enderecoTipoDto.DescricaoTipo;
+
+                _enderecoTipoService.Adicionar(tipo);
 ;
-                return Ok(enderecoTipo);
+                return Ok(tipo);
             }
             catch (Exception ex)
             {

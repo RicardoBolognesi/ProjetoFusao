@@ -7,7 +7,8 @@ namespace ProjetoTeste2.Domains.Interfaces.Repository
     {
         IRepository<User> UserRepository { get; }
         IRepository<EnderecoTipo> EnderecoTipoRepository { get; }
-        //IRepository<Cliente> ClienteRepository { get; }
+        IRepository<Cliente> ClienteRepository { get; }
+
 
         bool SaveChanges();
     }

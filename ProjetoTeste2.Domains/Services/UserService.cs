@@ -1,5 +1,4 @@
-﻿using ProjetoTeste2.Domains.Interfaces;
-using ProjetoTeste2.Domains.Interfaces.Repository;
+﻿using ProjetoTeste2.Domains.Interfaces.Repository;
 
 namespace ProjetoTeste2.Domains.Services
 {

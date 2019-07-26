@@ -114,18 +114,19 @@ namespace ProjetoTeste2.DI
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<IProductService, ProductService>();
-            //services.AddScoped<IUserService, UserService>();
-            //services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IEnderecoTipoService, EnderecoTipoService>();
+            services.AddScoped<IClienteService, ClienteService>();
         }
 
         private static void ConfigureRepositories(IServiceCollection services)
         {
-            //services.AddScoped<IProductRepository, ProductRepository>();
-            //services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
+            services.AddScoped<IEnderecoTipoRepository, EnderecoTipoRepository>();
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+
+
+
 
         }
 

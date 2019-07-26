@@ -69,25 +69,24 @@ export class EnderecotipoService extends BaseService {
     const url = AppSettings.EDIT_ENDERECO_TIPO_URL;
     return this.http.get(`${url}/${id}`);
   }
-  create(Tipo) {
-
+  create(tipo) {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' })
     };
 
     const url = AppSettings.CREATE_ENDERECO_TIPO_URL;
 
-    return this.http.post(url, Tipo, httpOptions).pipe(take(1));
+    return this.http.post(url, tipo, httpOptions).pipe(take(1));
   }
 
-  update(Tipo) {
+  update(tipo) {
 
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' })
     };
     const url = AppSettings.UPDATE_ENDERECO_TIPO_URL;
 
-    return this.http.put(url, Tipo, httpOptions).pipe(take(1));
+    return this.http.put(url, tipo, httpOptions).pipe(take(1));
 
   }
 }

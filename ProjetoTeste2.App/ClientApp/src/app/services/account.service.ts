@@ -105,7 +105,6 @@ export class AccountService extends BaseService {
    return this.http.get<any>(url).pipe(
       map((user: UserAuthenticated) => {
         this.nomeDoUsuario.emit(user.UserName);
-        console.log({ NomeUsuario: user.UserName });
         return user.UserName;
       })
     );

@@ -8,7 +8,5 @@ namespace ProjetoTeste2.Domains.Entities
         public string CreatedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
-        public bool IsDeleted { get; set; }
-        public virtual byte[] RecordTimeStamp { get; set; }
     }
 }

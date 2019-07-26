@@ -10,12 +10,6 @@ namespace ProjetoTeste2.Infra.Repositories
         {
             
         }
-        public ProjetoTeste2DbContext ProjetoTeste2DbContext
-        {
-            get
-            {
-                return Context;
-            }
-        }
+        public ProjetoTeste2DbContext ProjetoTeste2DbContext{get{return Context;}}
     }
 }

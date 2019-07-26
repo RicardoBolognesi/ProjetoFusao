@@ -61,7 +61,7 @@ namespace ProjetoTeste2.Infra.Repositories
 
 
         /// <summary>  
-        /// Gets the specified identifier.  
+        /// Obtem por Id.  
         /// </summary>  
         /// <param name="id">The identifier.</param>  
         /// <returns></returns>  
@@ -111,7 +111,7 @@ namespace ProjetoTeste2.Infra.Repositories
         }
 
         /// <summary>  
-        /// Adds the specified entity.  
+        /// Adiciona em uma Entidade.  
         /// </summary>  
         /// <param name="entity">The entity.</param>  
         public void Add(TEntity entity)
@@ -120,7 +120,7 @@ namespace ProjetoTeste2.Infra.Repositories
         }
 
         /// <summary>  
-        /// Adds the range.  
+        /// Adiciona uma Lista.  
         /// </summary>  
         /// <param name="entities">The entities.</param>  
         public void AddRange(IEnumerable<TEntity> entities)
@@ -129,7 +129,7 @@ namespace ProjetoTeste2.Infra.Repositories
         }
 
         /// <summary>  
-        /// Removes the specified entity.  
+        /// Remove de uma Entidate Específica.  
         /// </summary>  
         /// <param name="entity">The entity.</param>  
         public void Remove(TEntity entity)
@@ -138,7 +138,7 @@ namespace ProjetoTeste2.Infra.Repositories
         }
 
         /// <summary>  
-        /// Removes the range.  
+        /// Remove uma lista.  
         /// </summary>  
         /// <param name="entities">The entities.</param>  
         public void RemoveRange(IEnumerable<TEntity> entities)
