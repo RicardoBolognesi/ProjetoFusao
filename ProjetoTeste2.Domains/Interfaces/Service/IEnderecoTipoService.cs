@@ -10,5 +10,6 @@ namespace ProjetoTeste2.Domains.Interfaces.Service
         IList<EnderecoTipo> GetTodos();
         EnderecoTipo GetById(long id);
         void Atualizar(EnderecoTipo enderecoTipo);
+        bool EnvioEmail(string dest, string assunto, string msg);
     }
 }

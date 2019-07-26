@@ -13,7 +13,7 @@ import { map } from 'rxjs/operator/map';
   selector: 'app-home-navigmenu',
   templateUrl: './home-navigmenu.component.html',
   styleUrls: ['./home-navigmenu.component.css'],
-  providers:[ConfirmationService]
+  providers: [ConfirmationService]
 
 })
 export class HomeNavigmenuComponent implements OnInit {
@@ -27,7 +27,7 @@ export class HomeNavigmenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.items = [
       {
         label: 'Início',
@@ -56,7 +56,7 @@ export class HomeNavigmenuComponent implements OnInit {
         icon: 'pi pi-fw pi-file',
         items: [
           { label: 'Ordens Serviço', icon: 'pi pi-fw pi-user' },
-          { label: 'Tipo Endereço', icon: 'pi pi-fw pi-users', routerLink: ['/tipoendereco']}
+          { label: 'Tipo Endereço', icon: 'pi pi-fw pi-users', routerLink: ['/tipoendereco'] }
         ]
       },
       {
@@ -66,7 +66,15 @@ export class HomeNavigmenuComponent implements OnInit {
           { label: 'Contas Pagar', icon: 'pi pi-fw pi-user' },
           { label: 'Contas Receber', icon: 'pi pi-fw pi-users' }
         ]
-      } //,
+      },
+      {
+        label: 'Usuários',
+        icon: 'pi pi-fw pi-users',
+        items: [
+          { label: 'Cadastro', icon: 'pi pi-fw pi-users', routerLink: ['/user'] }
+        ]
+      }
+      //,
       //{
       //  label: 'Sair',
       //  icon: 'pi pi-fw pi-sign-out'
@@ -85,7 +93,7 @@ export class HomeNavigmenuComponent implements OnInit {
       header: 'LogOut',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-       this.service.signOut().subscribe(resp => {
+        this.service.signOut().subscribe(resp => {
           if (resp) {
             AppSettings.IsLoginPageEvent.next(true);
             AppSettings.IsAuthenticated.next(false);

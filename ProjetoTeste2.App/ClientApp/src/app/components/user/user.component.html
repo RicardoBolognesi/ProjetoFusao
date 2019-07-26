@@ -8,24 +8,27 @@
             <div class="p-col ui-fluid">
               <span>Usuário</span>
               <input id="username" type="text" formControlName="username" pInputText />
+              <p-message severity="error" text="Usuário Obrigatório !" *ngIf="!formulario.controls['username'].valid && formulario.controls['username'].dirty"></p-message>
             </div>
             <!--Email-->
             <div class="p-col ui-fluid">
               <span>Email</span>
               <input id="email" type="text" formControlName="email" pInputText />
+              <p-message severity="error" text="Email Obrigatório !" *ngIf="!formulario.controls['email'].valid && formulario.controls['email'].dirty"></p-message>
             </div>
             <!--Senha-->
             <div class="p-col ui-fluid">
               <span>Senha</span>
               <input type="password"
                      id="password"
-                     formControlName="password"
+                     formControlName="passwordHash"
                      pPassword
                      promptLabel="Entre com uma Senha"
                      weakLabel="Fraca"
                      mediumLabel="Média"
                      strongLabel="Forte" class="senha"
-                     feedback="false" />
+                     feedback="true" />
+              <p-message severity="error" text="Senha Obrigatório !" *ngIf="!formulario.controls['passwordHash'].valid && formulario.controls['passwordHash'].dirty"></p-message>
             </div>
             <!--ConfirmaSenha-->
             <div class="p-col ui-fluid">
@@ -39,11 +42,12 @@
                      mediumLabel="Média"
                      strongLabel="Forte"
                      class="senha"
-                     feedback="false" />
+                     feedback="true" />
+              <p-message severity="error" text="Confirmar Obrigatório !" *ngIf="!formulario.controls['confirmPassword'].valid && formulario.controls['confirmPassword'].dirty"></p-message>
             </div>
             <!--Botões-->
             <div class="p-col ui-fluid">
-              <button pButton type="submit" label="Gravar" class="ui-button-raised ui-button-secondary" (click)="onSubmit()"></button>
+              <button pButton type="submit" label="Gravar" class="ui-button-raised ui-button-secondary" [disabled]="!formulario.valid" (click)="onSubmit()"></button>
             </div>
           </form>
         </div>

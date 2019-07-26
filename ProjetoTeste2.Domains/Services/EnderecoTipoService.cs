@@ -4,6 +4,8 @@ using System.Linq;
 using ProjetoTeste2.Domains.Entities;
 using ProjetoTeste2.Domains.Interfaces.Repository;
 using ProjetoTeste2.Domains.Interfaces.Service;
+using ProjetoTeste2.Domains.Utils;
+
 
 namespace ProjetoTeste2.Domains.Services
 {
@@ -20,6 +22,9 @@ namespace ProjetoTeste2.Domains.Services
         {
             try
             {
+                var corpo = "";
+
+
                 _unitOfWork.EnderecoTipoRepository.Add(enderecoTipo);
                 _unitOfWork.SaveChanges();
             }
@@ -79,6 +84,11 @@ namespace ProjetoTeste2.Domains.Services
                 Console.WriteLine(e);
                 throw;
             }
+        }
+
+        public bool EnvioEmail(string dest , string assunto, string msg)
+        {
+           return Utilities.EnviaEmail( dest,assunto,msg);
         }
     }
 }

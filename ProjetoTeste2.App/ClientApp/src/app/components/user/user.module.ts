@@ -8,6 +8,9 @@ import { ButtonModule } from 'primeng/components/button/button';
 import { PasswordModule } from 'primeng/components/password/password';
 import { UserComponent } from './user.component';
 import { UserService } from '../../services/user.service';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -20,10 +23,12 @@ NgModule({
     PanelModule,
     InputTextModule,
     ButtonModule,
-    PasswordModule
+    PasswordModule,
+    MessagesModule,
+    MessageModule
   ],
   declarations: [UserComponent],
   exports: [UserComponent],
-  providers:[UserService]
+  providers:[UserService, MessageService]
 })
 export class UserModule { }

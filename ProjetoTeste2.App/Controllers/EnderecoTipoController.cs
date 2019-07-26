@@ -50,16 +50,12 @@ namespace ProjetoTeste2.App.Controllers
         public IActionResult Create([FromBody]EnderecoTipoDto enderecoTipoDto)
         {
 
-            //EnderecoTipo enderecoTipo = new EnderecoTipo();
             var tipo = _mapper.Map<EnderecoTipo>(enderecoTipoDto);
+
             try
             {
-
-                //enderecoTipo.EnderecoTipoId = enderecoTipoDto.EnderecoTipoId;
-                //enderecoTipo.DescricaoTipo = enderecoTipoDto.DescricaoTipo;
-
                 _enderecoTipoService.Adicionar(tipo);
-;
+;               
                 return Ok(tipo);
             }
             catch (Exception ex)

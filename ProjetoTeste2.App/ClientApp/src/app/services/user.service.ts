@@ -1,5 +1,5 @@
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
 import { BaseResponse } from '../models/base-response.model';
@@ -17,15 +17,18 @@ export class UserService extends BaseService {
     );
   }
 
-  saveUser(employee: User): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' })
+  saveUser(employee: User) {
+
+    const httpOptions: { headers; observe; } = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }),
+      observe: 'response'
     };
     const url = AppSettings.SAVE_EMPLOYEE_URL;
-    return this.http.post<BaseResponse>(url, employee, httpOptions).pipe(
-      map((res: BaseResponse) => this.extractData(res)),
-      catchError((res: HttpErrorResponse) => this.handleError(res))
-    );
+
+    return this.http.post<Response>(url, employee, httpOptions).pipe();
   }
 
   getCountryList(): Observable<any> {

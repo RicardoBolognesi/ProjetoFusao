@@ -12,6 +12,7 @@ using ProjetoTeste2.Domains.Entities;
 using ProjetoTeste2.Domains.Interfaces.Repository;
 using ProjetoTeste2.Domains.Interfaces.Service;
 using ProjetoTeste2.Domains.Services;
+using ProjetoTeste2.Domains.Utils;
 using ProjetoTeste2.Infra;
 using ProjetoTeste2.Infra.Context;
 using ProjetoTeste2.Infra.Repositories;
@@ -115,6 +116,7 @@ namespace ProjetoTeste2.DI
         private static void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IEnderecoTipoService, EnderecoTipoService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IClienteService, ClienteService>();
         }
 
