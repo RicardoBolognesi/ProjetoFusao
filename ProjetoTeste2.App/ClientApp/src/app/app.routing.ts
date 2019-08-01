@@ -8,12 +8,13 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './services/auth.guard';
 import { UserComponent } from './components/user/user.component';
 import { HomeComponent } from './components/home/home.component';
+import { ClienteFormComponent } from './components/cliente/cliente-form/cliente-form.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UserComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

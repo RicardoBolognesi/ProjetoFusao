@@ -31,6 +31,7 @@ export class AccountService extends BaseService {
   }
 
   login(singInDTO: SignIn): Observable<any> {
+
     const httpOptions: { headers; observe; } = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -38,24 +39,11 @@ export class AccountService extends BaseService {
       }),
       observe: 'response'
     };
-    //const httpOptions = {
-    //  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' }),
-    //  observe:'response'
-    //};
     const url = AppSettings.SIGN_IN_URL;
 
     return this.http.post<any>(url, singInDTO, httpOptions);
   }
 
-  //signOut(): Observable<string> {
-  //  const url = AppSettings.SIGN_OUT_URL;
-
-  //  this.authenticated = false;
-  //  return this.http.get<BaseResponse>(url).pipe(
-  //    map((res: BaseResponse) => this.extractData(res)),
-  //    /*catchError((res: HttpErrorResponse) => this.handleError(res))*/
-  //  );
-  //}
   signOut() : Observable<boolean> {
     return this.out().pipe(
       map((resp: Response) => { return resp.ok;})
@@ -74,14 +62,6 @@ export class AccountService extends BaseService {
     const url = AppSettings.SIGN_OUT_URL;
     return this.http.get<any>(url, httpOptions);
   }
-  //getSignedInUser(): Observable<string> {
-  //  const url = AppSettings.GET_SIGNED_IN_USER;
-
-  //  return this.http.get<BaseResponse>(url).pipe(
-  //    map((res: BaseResponse) => this.extractData(res)),
-  //    //catchError((res: HttpErrorResponse) => this.handleError(res))
-  //  );
-  //}
 
   getSignedInUser(): Observable<boolean> {
     const url = AppSettings.GET_SIGNED_IN_USER;

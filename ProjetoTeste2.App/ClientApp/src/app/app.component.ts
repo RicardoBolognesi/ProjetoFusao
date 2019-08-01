@@ -2,10 +2,10 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { AppSettings } from './app.settings';
-import { ToastsManager } from 'ng2-toastr';
 import { UserIdleService } from 'angular-user-idle';
 import { AccountService } from './services/account.service';
 import { Router } from '@angular/router';
+import { ToastsManager } from 'ng2-toastr';
 
 @Component({
   selector: 'app-root',
@@ -23,13 +23,13 @@ export class AppComponent implements OnInit {
   nomeUsuario: string ="";
 
   constructor(
-    public toastr: ToastsManager,
-    vcr: ViewContainerRef,
+    public tostr: ToastsManager,
+    vcr : ViewContainerRef,
     private userIdle: UserIdleService,
     private service: AccountService,
     private route: Router
   ) {
-    this.toastr.setRootViewContainerRef(vcr);
+    this.tostr.setRootViewContainerRef(vcr);
     this.service.nomeDoUsuario.subscribe(nome => this.nomeUsuario = nome);
   }
 

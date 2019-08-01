@@ -57,11 +57,11 @@ namespace ProjetoTeste2.Domains.Services
             }
         }
 
-        public Cliente GetById(long id)
+        public Cliente GetById(string id)
         {
             try
             {
-               return _unitOfWork.ClienteRepository.Get(id);
+                return _unitOfWork.ClienteRepository.SingleOrDefault(c=> c.Cnpj == id);
             }
             catch (Exception e)
             {

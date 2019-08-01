@@ -51,8 +51,12 @@ namespace ProjetoTeste2.App.Controllers
             try
             {
                 var result = await _userManager.CreateAsync(usuario, userDto.PasswordHash);
-                _userService.EnviarEmail(usuario.Email, ass, msg);
-                return Ok(result);
+                if (result.Succeeded)
+                {
+                    _userService.EnviarEmail(usuario.Email, ass, msg);
+                    return Ok(result);
+                }
+                return BadRequest(result);
             }
             catch (Exception ex)
             {

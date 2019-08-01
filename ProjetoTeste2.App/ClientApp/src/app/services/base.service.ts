@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { BaseResponse } from '../models/base-response.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RequestInfo } from '../models/request-info.model';
 import { AppSettings } from '../app.settings';
-import { Observable } from 'rxjs';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 //import { throwError } from 'rxjs';
 
 @Injectable()
@@ -38,23 +38,20 @@ export class BaseService {
 
   public handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
+      //Ocorreu um erro do lado do cliente ou de rede. Lidar com isso
+      return new ErrorObservable('Verifique sua conexão de rede !.');
     } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      if (error.status === 403) {
+      //O back-end retornou um código de resposta malsucedido
+      //O corpo de resposta pode conter pistas sobre o que deu errado
+
+      // acesso negado ou proibido
+      if (error.status === 403 || error.status === 401) {
         //window.location.replace(window.location.href);
         //this.router.navigateByUrl('/login')
         this.router.navigateByUrl('/login');
       }
-      //console.error(
-      //  `Backend returned code ${error.status}, ` +
-      //  `body was: ${error.error}`);
+
     }
-    // return an ErrorObservable with a user-facing error message
-    //return throwError(
-    //  'Something bad happened; please try again later.');
-    return Observable.throw("'Something bad happened; please try again later.'");
+    return new ErrorObservable('Avisar o Administrador do Sistema.');
   }
 }

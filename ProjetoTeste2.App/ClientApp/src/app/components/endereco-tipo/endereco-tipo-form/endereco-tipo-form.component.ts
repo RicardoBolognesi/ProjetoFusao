@@ -11,8 +11,7 @@ import { ToastService } from '../../../shared/toast.service';
 @Component({
   selector: 'app-endereco-tipo-form',
   templateUrl: './endereco-tipo-form.component.html',
-  styleUrls: ['./endereco-tipo-form.component.css'],
-  providers: [ ToastService ]
+  styleUrls: ['./endereco-tipo-form.component.css']
 
 })
 export class EnderecoTipoFormComponent implements OnInit
@@ -28,11 +27,11 @@ export class EnderecoTipoFormComponent implements OnInit
     private routerAtive: ActivatedRoute,
     private router: Router,
     private service: EnderecotipoService,
-    //public toastr: ToastsManager,
-    //vcr: ViewContainerRef,
+    public toastr: ToastsManager,
+    vcr: ViewContainerRef,
     private toastService: ToastService
   ) {
-    //this.toastr.setRootViewContainerRef(vcr);
+    this.toastr.setRootViewContainerRef(vcr);
   }
 
   ngOnInit() {
@@ -72,10 +71,11 @@ export class EnderecoTipoFormComponent implements OnInit
         //this.showSuccess();
         this.toastService.showCreateSuccess();
         this.formulario.reset();
-        setTimeout(() => {
-            this.router.navigate(['tipoendereco']);
-          },
-          3500);
+        this.router.navigate(['tipoendereco']);
+        //setTimeout(() => {
+        //    this.router.navigate(['tipoendereco']);
+        //  },
+        //  3500);
       },
       error => {
         //this.showError();
@@ -116,10 +116,11 @@ export class EnderecoTipoFormComponent implements OnInit
     });
   }
 
-  //showSuccess() {
-  //  this.toastr.success('Registro adicionado com sucesso !', 'Inclusão');
-  //}
-  //showError() {
-  //  this.toastr.error('Houve um erro ao adicionar o registro !', 'Erro de Inclusão');
-  //}
+  showSuccess() {
+    
+    this.toastr.success('Registro adicionado com sucesso !', 'Inclusão');
+  }
+  showError() {
+    this.toastr.error('Houve um erro ao adicionar o registro !', 'Erro de Inclusão');
+  }
 }

@@ -8,7 +8,7 @@ namespace ProjetoTeste2.Domains.Interfaces.Service
         void Add(Cliente cliente);
         void Del(Cliente cliente);
         IList<Cliente> GetAll();
-        Cliente GetById(long id);
+        Cliente GetById(string id);
         void Upd(Cliente cliente);
     }
 }

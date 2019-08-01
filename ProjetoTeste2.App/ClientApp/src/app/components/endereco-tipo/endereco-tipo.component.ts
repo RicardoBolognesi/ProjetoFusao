@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 import { ToastsManager } from 'ng2-toastr';
 import { AppSettings } from '../../app.settings';
+import { Utilitarios } from '../../shared/Utilitarios';
 
 @Component({
   selector: 'app-endereco-tipo',
@@ -52,7 +53,7 @@ export class EnderecoTipoComponent implements OnInit {
   }
 
   verRegistro(tipo: EnderecoTipo) {
-    AppSettings.TipoOperacao.next(2);
+
     this.id = tipo.EnderecoTipoId;
     this.route.navigate(['tipoendereco/' + this.id]);
   }

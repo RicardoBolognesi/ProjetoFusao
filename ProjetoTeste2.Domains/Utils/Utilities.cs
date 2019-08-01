@@ -51,5 +51,15 @@ namespace ProjetoTeste2.Domains.Utils
                 return false;
             }
         }
+
+        public static string FormatarCNPJ(string cnpj)
+        {
+            cnpj = cnpj.Substring(0, 2) + "." + 
+                   cnpj.Substring(2, 3) + "." + 
+                   cnpj.Substring(5, 3) + "/" + 
+                   cnpj.Substring(8,4) + "-" + 
+                   cnpj.Substring(12, 2);
+            return cnpj;
+        }
     }
 }

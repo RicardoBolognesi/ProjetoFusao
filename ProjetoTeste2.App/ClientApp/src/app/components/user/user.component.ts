@@ -49,12 +49,16 @@ export class UserComponent implements OnInit {
         }
       },
       error => {
-        console.log(error);
+        this.showError(error);
       }
     );
   }
 
   showSuccess() {
     this.toastr.success("Registro gravado com sucesso !", "Inclusão de Usuário !");
+  }
+
+  showError(erro) {
+    this.toastr.error(erro, "Erro ao Salvar Usuário !");
   }
 }

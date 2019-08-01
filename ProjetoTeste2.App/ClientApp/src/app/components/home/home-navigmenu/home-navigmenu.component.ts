@@ -55,6 +55,7 @@ export class HomeNavigmenuComponent implements OnInit {
         label: 'Atendimento',
         icon: 'pi pi-fw pi-file',
         items: [
+          { label: 'Clientes', icon: 'pi pi-fw pi-users', routerLink: ['/cliente'] },
           { label: 'Ordens Serviço', icon: 'pi pi-fw pi-user' },
           { label: 'Tipo Endereço', icon: 'pi pi-fw pi-users', routerLink: ['/tipoendereco'] }
         ]

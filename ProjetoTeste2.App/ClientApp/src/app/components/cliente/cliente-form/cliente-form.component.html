@@ -1,0 +1,50 @@
+<div class="p-grid">
+  <div class="p-col-12 p-md-12 p-lg-8 p-lg-offset-2 p-xl-8 p-xl-offset-2">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
+      <p-panel header="Cadastro de Clientes">
+        <div class="p-grid" style="margin: 10px 0px">
+          <div class="p-col-9 ui-fluid">
+            <span>Razão Social <font color="red">*</font>:</span>
+            <input pInputText type="text" formControlName="Razao" placeholder="Razão Social" />
+            <p-message severity="error" text="Razão Obrigatório" *ngIf="!formulario.controls['Razao'].valid && formulario.controls['Razao'].dirty"></p-message>
+          </div>
+          <div class="p-col-3 ui-fluid">
+            <span>Cnpj <font color="red">*</font>:</span>
+            <p-inputMask type="text" formControlName="Cnpj" placeholder="Cnpj" mask="99.999.999/9999-99" slotChar=" "></p-inputMask>
+            <p-message severity="error" text="Cnpj Obrigatório" *ngIf="!formulario.controls['Cnpj'].valid && formulario.controls['Cnpj'].dirty"></p-message>
+          </div>
+          <div class="p-col-6 ui-fluid">
+            <span>Nome Fantasia <font color="red">*</font>:</span>
+            <input pInputText type="text" formControlName="Fantasia" placeholder="Nome Fantasia" />
+            <p-message severity="error" text="Fantasia Obrigatório" *ngIf="!formulario.controls['Fantasia'].valid && formulario.controls['Fantasia'].dirty"></p-message>
+          </div>
+          <div class="p-col-3 ui-fluid">
+            <span>IE :</span>
+            <input pInputText type="text" formControlName="IE" placeholder="Inscrição Estadual" />
+          </div>
+          <div class="p-col-3 ui-fluid">
+            <span>IM :</span>
+            <input pInputText type="text" formControlName="IM" placeholder="Inscrição Municipal" />
+          </div>
+          <div class="p-col-12 ui-fluid">
+            <span>Observações :</span>
+            <textarea rows="5" cols="30" formControlName="Obs" pInputTextarea></textarea>
+            <span><font color="red" size="-2">* Campo Obrigatório</font></span>
+          </div>
+        </div>
+        <p-footer>
+          <div class="p-grid">
+            <div class="p-col-4 ui-fluid">
+              <button type="button" class="btn btn-outline-dark btn-sm "><i class="fa fa-arrow-left" aria-hidden="true" (click)="voltar()"> Voltar</i></button>
+            </div>
+            <div class="p-col-4"></div>
+            <div class="p-col-4 ui-fluid" style="text-align: right">
+              <button type="submit" class="btn btn-outline-dark btn-sm "><i class="fa fa-plus-square-o" aria-hidden="true"> Salvar</i></button>
+            </div>
+          </div>
+        </p-footer>
+      </p-panel>
+    </form>
+  </div>
+</div>
+

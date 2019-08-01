@@ -21,6 +21,7 @@ export class AppSettings {
   public static USER_API = 'UserAPI';
   public static PRODUCT_API = 'ProductAPI';
   public static INFRASTRUCTURE_API = 'InfrastructureAPI';
+  public static CLIENTE_API = 'ClienteAPI';
 
   //API URLs
   public static SIGN_IN_URL = AppSettings.ACCOUNT_API + '/SignIn';
@@ -40,4 +41,11 @@ export class AppSettings {
   public static DELETE_ENDERECO_TIPO_URL = AppSettings.ENDERECO_TIPO_API + '/Delete';
   public static GET_ALL_ENDERECO_TIPO_URL = AppSettings.ENDERECO_TIPO_API + '/GetAll';
   public static UPDATE_ENDERECO_TIPO_URL = AppSettings.ENDERECO_TIPO_API + '/Update';
+
+  public static GET_ALL_CLIENTE_URL = AppSettings.CLIENTE_API + '/GetAll';
+  public static CREATE_CLIENTE_URL = AppSettings.CLIENTE_API + '/Create';
+  public static DELETE_CLIENTE_URL = AppSettings.CLIENTE_API + '/Delete';
+  public static EDIT_CLIENTE_URL = AppSettings.CLIENTE_API + '/Edit';
+  public static UPDATE_CLIENTE_URL = AppSettings.CLIENTE_API + '/Update';
+
 }

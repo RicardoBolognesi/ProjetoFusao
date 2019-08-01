@@ -1,5 +1,5 @@
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { map, catchError, take } from 'rxjs/operators';
+import { map, catchError, take, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../app.settings';
 import { BaseResponse } from '../models/base-response.model';
@@ -28,7 +28,10 @@ export class UserService extends BaseService {
     };
     const url = AppSettings.SAVE_EMPLOYEE_URL;
 
-    return this.http.post<Response>(url, employee, httpOptions).pipe();
+    return this.http.post(url, employee, httpOptions).pipe(
+      map((res: any)=> res),
+      catchError((res: HttpErrorResponse)=> this.handleError(res))
+      );
   }
 
   getCountryList(): Observable<any> {

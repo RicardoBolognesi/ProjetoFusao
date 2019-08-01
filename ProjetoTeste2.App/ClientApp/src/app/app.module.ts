@@ -26,7 +26,9 @@ import { MessageService } from 'primeng/api';
 import { AuthGuard } from './services/auth.guard';
 import { UserIdleModule } from 'angular-user-idle';
 import { SubscriberService } from './services/subscriber.service';
-
+import { ClienteModule } from './components/cliente/cliente.module';
+import { ClienteRouting } from './components/cliente/cliente-routing';
+import { InputMaskModule } from "primeng/components/inputmask/inputmask";
 
 export class CustomOption extends ToastOptions {
   positionClass: 'toast-bottom-full-width';
@@ -61,7 +63,10 @@ export class CustomOption extends ToastOptions {
     TableModule,
     EnderecoTipoModule,
     EnderecoTipoRouting,
-    UserIdleModule.forRoot({ idle:60, timeout:60 ,ping:10})
+    UserIdleModule.forRoot({ idle: 60, timeout: 60, ping: 10 }),
+    ClienteModule,
+    ClienteRouting,
+    InputMaskModule
   ],
   providers: [
     {

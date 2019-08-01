@@ -19,6 +19,7 @@ var AppSettings = /** @class */ (function () {
     AppSettings.USER_API = 'UserAPI';
     AppSettings.PRODUCT_API = 'ProductAPI';
     AppSettings.INFRASTRUCTURE_API = 'InfrastructureAPI';
+    AppSettings.CLIENTE_API = 'ClienteAPI';
     //API URLs
     AppSettings.SIGN_IN_URL = AppSettings.ACCOUNT_API + '/SignIn';
     AppSettings.SIGN_OUT_URL = AppSettings.ACCOUNT_API + '/SignOut';
@@ -36,6 +37,11 @@ var AppSettings = /** @class */ (function () {
     AppSettings.DELETE_ENDERECO_TIPO_URL = AppSettings.ENDERECO_TIPO_API + '/Delete';
     AppSettings.GET_ALL_ENDERECO_TIPO_URL = AppSettings.ENDERECO_TIPO_API + '/GetAll';
     AppSettings.UPDATE_ENDERECO_TIPO_URL = AppSettings.ENDERECO_TIPO_API + '/Update';
+    AppSettings.GET_ALL_CLIENTE_URL = AppSettings.CLIENTE_API + '/GetAll';
+    AppSettings.CREATE_CLIENTE_URL = AppSettings.CLIENTE_API + '/Create';
+    AppSettings.DELETE_CLIENTE_URL = AppSettings.CLIENTE_API + '/Delete';
+    AppSettings.EDIT_CLIENTE_URL = AppSettings.CLIENTE_API + '/Edit';
+    AppSettings.UPDATE_CLIENTE_URL = AppSettings.CLIENTE_API + '/Update';
     return AppSettings;
 }());
 exports.AppSettings = AppSettings;

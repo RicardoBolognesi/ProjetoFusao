@@ -11,7 +11,8 @@ namespace ProjetoTeste2.App.Mappings.Profile
         {
             CreateMap<EnderecoTipo, EnderecoTipoDto>().ReverseMap();
             CreateMap<IUserService, UserService>().ReverseMap();
-            CreateMap<User, UserDto>();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Cliente, ClienteDto>().ReverseMap();
         }
     }
 }

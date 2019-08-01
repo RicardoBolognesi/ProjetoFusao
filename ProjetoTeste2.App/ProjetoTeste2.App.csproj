@@ -29,12 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\components\cliente\cliente-routing.ts" />
     <None Remove="ClientApp\src\app\components\endereco-tipo\endereco-tipo-routing.ts" />
+    <None Remove="ClientApp\src\app\models\cliente.model.ts" />
     <None Remove="ClientApp\src\app\models\endereco-tipo.model.ts" />
     <None Remove="ClientApp\src\app\models\enderecotipo.model.ts" />
     <None Remove="ClientApp\src\app\models\user-authenticated.model.ts" />
     <None Remove="ClientApp\src\app\services\subscriber.service.ts" />
     <None Remove="ClientApp\src\app\shared\tipo-operacao.ts" />
+    <None Remove="ClientApp\src\app\shared\Utilitarios.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,12 +50,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\components\cliente\cliente-routing.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\endereco-tipo\endereco-tipo-routing.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\cliente.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\endereco-tipo.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\enderecotipo.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\user-authenticated.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\subscriber.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\tipo-operacao.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\Utilitarios.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\pipes\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -6,7 +6,6 @@ import { AccountService } from '../../services/account.service';
 import { SignIn } from '../../models/sign-in.model';
 import { ToastsManager } from 'ng2-toastr';
 import { AppSettings } from '../../app.settings';
-import { SubscriberService } from '../../services/subscriber.service';
 
 
 @Component({
