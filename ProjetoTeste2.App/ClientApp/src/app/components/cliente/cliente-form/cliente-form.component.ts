@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { ClienteService } from '../../../services/cliente.service';
 import { Cliente } from '../../../models/cliente.model';
 import { Utilitarios } from '../../../shared/Utilitarios';
+import * as JsPDF from "jspdf";
+//import { PdfMakeWrapper, Txt }  from "pdfmake-wrapper"
 
 
 @Component({
@@ -118,4 +120,59 @@ export class ClienteFormComponent implements OnInit {
     this.formulario.reset();
     this.router.navigate(['/cliente']);
   }
+  downloadPdf(formulario) {
+    let report = new JsPDF("p", "mm", "a4");
+
+
+
+    report.setFontSize(12);
+    report.setFontStyle("bolditalic");
+    report.setFont('helvetica');
+
+    report.text("Cadastro de Cliente", 80, 20);
+
+    report.setLineWidth(0.5);
+    report.line(10, 25, 200, 25);
+
+
+    report.setFontSize(8);
+    
+
+    report.setFontStyle("bolditalic");
+    report.text("Razão Social : ", 10, 35);
+    report.text("Nome Fantasia : ", 10, 40);
+    report.text("IM : ", 10, 45);
+    report.text("IE : ", 10, 50);
+    report.text("Observações : ", 10, 55);
+
+    report.setFontStyle("italic");
+    report.text(formulario.Razao, 30, 35);
+    report.text(formulario.Fantasia, 33, 40);
+    report.text(formulario.IM, 16, 45);
+    report.text(formulario.IE, 16, 50);
+    report.text(formulario.Obs, 30, 55);
+
+    report.setLineWidth(0.5);
+    report.line(10, 282, 200, 282);
+    report.text("1", 190, 286);
+
+    report.save("report.pdf");
+
+
+  }
+  //downloadPdfMake(formulario) {
+  //  const relatorio = new PdfMakeWrapper();
+
+  //  relatorio.pageOrientation('Portrait');
+  //  relatorio.pageMargins([40, 60, 40, 60]);
+  //  relatorio.pageSize('A4');
+  //  relatorio.defaultStyle({ fontSize: 10, bold: false });
+
+  //  relatorio.add(new Txt('Razão Social : ').bold().italics().end);
+  //  relatorio.add(new Txt('Nome Fantasia :' + formulario.Fantasia).bold().italics().end);
+  //  relatorio.add(new Txt('IM :' + formulario.IM).bold().italics().end);
+  //  relatorio.add(new Txt('IE :' + formulario.IE).bold().italics().end);
+  //  relatorio.add(new Txt('Observações :' + formulario.Obs).bold().italics().end);
+  //  relatorio.create().open();
+  //}
 }
