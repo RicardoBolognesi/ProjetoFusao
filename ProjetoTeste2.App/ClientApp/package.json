@@ -31,7 +31,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "ng2-toastr": "^4.1.2",
     "pdfmake-wrapper": "^1.0.7",
     "primeflex": "^1.0.0-rc.1",
